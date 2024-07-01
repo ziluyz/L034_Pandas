@@ -1,0 +1,20 @@
+import pandas as pd
+
+df = pd.read_csv("World Largest Cities by Population 2024.csv")
+print(df.head())
+print('---------------')
+print(df.info())
+print('---------------')
+print(df.describe())
+print('---------------')
+print(f'The most shrinking city is {df[df["Growth Rate"] == df["Growth Rate"].min()][["City", "Growth Rate"]]}')
+print()
+
+dz = pd.read_csv("dz.csv")
+print(dz)
+dz.dropna(inplace=True)
+print('---------------')
+print(dz)
+print('---------------')
+print('Average salary:')
+print(dz.groupby('City')['Salary'].mean())
